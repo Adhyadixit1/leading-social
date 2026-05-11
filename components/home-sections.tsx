@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, LineChart, Repeat, Sparkles, Zap } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
@@ -24,7 +25,112 @@ type CaseStudy = {
   stats: { k: string; v: string }[];
 };
 
+type SocialAsset = {
+  id: string;
+  title: string;
+  instagramUrl: string;
+  image: string;
+  metadata: string;
+  tag: string;
+};
+
 const icons = [Zap, Sparkles, Repeat, LineChart];
+
+export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
+  const featured = assets.slice(0, 5);
+  const grid = assets.slice(5);
+
+  return (
+    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[#09090C] py-24 lg:py-32">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="kbd mb-6">[ Team signal ]</p>
+            <h2 className="font-display max-w-[15ch] text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
+              The work moves through rooms, stages, summits, and client tables.
+            </h2>
+          </div>
+          <p className="max-w-md text-lg text-[var(--foreground)]/68 lg:col-span-4 lg:col-start-9">
+            A live record of the team in the eCommerce community: awards nights, strategy rooms, panels, partner
+            events, and field work with operators.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-5 lg:grid-cols-12">
+          <div className="grid gap-5 lg:col-span-7">
+            {featured.map((asset, index) => (
+              <Link
+                key={asset.id}
+                href={asset.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[#0D0D11] md:grid-cols-[0.95fr_1.05fr]"
+              >
+                <div className="relative min-h-[300px] overflow-hidden">
+                  <Image
+                    src={asset.image}
+                    alt={asset.metadata}
+                    fill
+                    unoptimized
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 45vw, 38vw"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-[1200ms] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070A]/72 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-5 font-display text-7xl leading-none text-white/18">
+                    0{index + 1}
+                  </p>
+                </div>
+                <div className="flex min-h-[300px] flex-col justify-between p-7 md:p-8">
+                  <div>
+                    <div className="flex items-center justify-between gap-5">
+                      <span className="kbd rounded-full border border-[var(--border)] px-3 py-1.5 text-[var(--accent)]">
+                        {asset.tag}
+                      </span>
+                      <ArrowUpRight className="size-5 text-[var(--muted)] transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--accent)]" />
+                    </div>
+                    <h3 className="mt-8 font-display text-4xl leading-tight tracking-tight">{asset.title}</h3>
+                  </div>
+                  <p className="mt-8 text-sm leading-6 text-[var(--foreground)]/66">{asset.metadata}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="grid gap-5 self-start lg:sticky lg:top-24 lg:col-span-5">
+            {grid.map((asset) => (
+              <Link
+                key={asset.id}
+                href={asset.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[#0D0D11] sm:grid-cols-[180px_1fr]"
+              >
+                <div className="relative min-h-[170px] overflow-hidden">
+                  <Image
+                    src={asset.image}
+                    alt={asset.metadata}
+                    fill
+                    unoptimized
+                    sizes="(max-width: 639px) 100vw, 180px"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-[900ms] group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="kbd text-[var(--accent)]">{asset.tag}</span>
+                    <ArrowUpRight className="size-4 text-[var(--muted)] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl leading-tight tracking-tight">{asset.title}</h3>
+                  <p className="mt-4 line-clamp-3 text-sm leading-6 text-[var(--foreground)]/62">{asset.metadata}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function MediaProofWall({ cases }: { cases: CaseStudy[] }) {
   const ref = useRef<HTMLElement>(null);

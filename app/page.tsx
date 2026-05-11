@@ -4,8 +4,25 @@ import { Reveal, RevealText } from "@/components/reveal";
 import { Counter } from "@/components/counter";
 import { Marquee } from "@/components/marquee";
 import { Globe } from "@/components/globe";
-import { CameraCommandCenter, MediaProofWall, ResultsRail, StickyGrowthSystem } from "@/components/home-sections";
-import { brands, cases, insights, metrics, principles, services } from "@/lib/content";
+import {
+  CameraCommandCenter,
+  MediaProofWall,
+  ResultsRail,
+  SocialSignalWall,
+  StickyGrowthSystem,
+} from "@/components/home-sections";
+import { brands, cases, insights, metrics, principles, services, socialAssets } from "@/lib/content";
+
+const heroImageGrid = [
+  socialAssets[0].image,
+  cases[1].image,
+  socialAssets[3].image,
+  cases[0].image,
+  socialAssets[2].image,
+  cases[2].image,
+  socialAssets[4].image,
+  cases[3].image,
+];
 
 export default function Home() {
   return (
@@ -15,6 +32,20 @@ export default function Home() {
         <div className="absolute inset-0 gradient-radial pointer-events-none" />
 
         <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute left-1/2 top-[58%] z-[4] grid w-[128vw] max-w-[1320px] -translate-x-1/2 -translate-y-1/2 grid-cols-2 gap-2 opacity-40 sm:grid-cols-4 sm:gap-3 sm:opacity-60 md:top-[60%]">
+            {heroImageGrid.map((image, index) => (
+              <div
+                key={`${image}-${index}`}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-[#101014]"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${image}')` }}
+                />
+                <div className="absolute inset-0 bg-[#07070A]/38 sm:bg-[#07070A]/24" />
+              </div>
+            ))}
+          </div>
           <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-[43%] w-[112vw] max-w-[1120px] aspect-square pointer-events-auto opacity-100">
             <Globe />
           </div>
@@ -168,6 +199,8 @@ export default function Home() {
       <ResultsRail cases={cases} />
 
       <MediaProofWall cases={cases} />
+
+      <SocialSignalWall assets={socialAssets} />
 
       {/* PRINCIPLES */}
       <section className="py-24 lg:py-32">

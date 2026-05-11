@@ -1,12 +1,20 @@
 import type { NextConfig } from "next";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-
-const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
+    ],
+    qualities: [75],
+  },
   turbopack: {
-    root: projectRoot,
+    root: process.cwd(),
   },
 };
 
