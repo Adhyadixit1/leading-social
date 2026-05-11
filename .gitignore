@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+.playwright-mcp/
+.skillui/
 
 # next.js
 /.next/
