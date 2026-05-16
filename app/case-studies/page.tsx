@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CaseStudyCinematicRail } from "@/components/immersive-pages";
+import { ImageEvidenceBand, PageHeroImageGrid, showcaseImages } from "@/components/page-image-showcase";
 import { PageSignalStack } from "@/components/page-motion";
 import { Reveal, RevealText } from "@/components/reveal";
 import { cases } from "@/lib/content";
@@ -14,16 +15,28 @@ export default function CaseStudiesPage() {
   return (
     <>
       <section className="pt-36 lg:pt-44 pb-16">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <p className="kbd mb-8">[ Case Studies: Selected work ]</p>
+        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:items-end lg:px-10">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <p className="kbd mb-8">[ Case Studies: Selected work ]</p>
+            </Reveal>
+            <h1 className="font-display text-[12vw] md:text-[7.5vw] lg:text-[7rem] xl:text-[8rem] leading-[0.92] tracking-[-0.03em] text-balance max-w-[18ch]">
+              <RevealText text="Receipts," />{" "}
+              <RevealText text="not promises." className="italic text-[var(--muted)]" />
+            </h1>
+          </div>
+          <Reveal className="lg:col-span-5" delay={0.12}>
+            <PageHeroImageGrid images={[showcaseImages[1], showcaseImages[0], showcaseImages[8], showcaseImages[6]]} />
           </Reveal>
-          <h1 className="font-display text-[12vw] md:text-[7.5vw] lg:text-[7rem] xl:text-[8rem] leading-[0.92] tracking-[-0.03em] text-balance max-w-[18ch]">
-            <RevealText text="Receipts," />{" "}
-            <RevealText text="not promises." className="italic text-[var(--muted)]" />
-          </h1>
         </div>
       </section>
+
+      <ImageEvidenceBand
+        eyebrow="[ Visual receipts ]"
+        title="Creative proof across wellness, beauty, nutrition, and consumer."
+        images={[showcaseImages[1], showcaseImages[2], showcaseImages[3], showcaseImages[6], showcaseImages[8], showcaseImages[10]]}
+        light
+      />
 
       <PageSignalStack
         eyebrow="[ Proof engine ]"

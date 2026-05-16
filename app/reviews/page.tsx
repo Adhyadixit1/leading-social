@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ReviewsMomentumWall } from "@/components/immersive-pages";
+import { ImageEvidenceBand, PageHeroImageGrid, showcaseImages } from "@/components/page-image-showcase";
 import { Reveal, RevealText } from "@/components/reveal";
 import { testimonials } from "@/lib/pages";
 
@@ -16,19 +17,24 @@ export default function ReviewsPage() {
   return (
     <>
       <section className="pt-36 pb-20 lg:pt-44">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <p className="kbd mb-8">[ Reviews: Partner proof ]</p>
-          </Reveal>
-          <h1 className="font-display max-w-[16ch] text-[13vw] leading-[0.9] tracking-[-0.03em] text-balance md:text-[8vw] lg:text-[7.5rem]">
-            <RevealText text="Momentum from" />{" "}
-            <RevealText text="the operators." className="italic text-[var(--muted)]" />
-          </h1>
-          <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-xl text-[var(--foreground)]/75">
-              Testimonials are useful only when they connect back to outcomes. These are the patterns partners call out
-              after the system is actually operating.
-            </p>
+        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:items-end lg:px-10">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <p className="kbd mb-8">[ Reviews: Partner proof ]</p>
+            </Reveal>
+            <h1 className="font-display max-w-[16ch] text-[13vw] leading-[0.9] tracking-[-0.03em] text-balance md:text-[8vw] lg:text-[7.5rem]">
+              <RevealText text="Momentum from" />{" "}
+              <RevealText text="the operators." className="italic text-[var(--muted)]" />
+            </h1>
+            <Reveal delay={0.18}>
+              <p className="mt-10 max-w-2xl text-xl text-[var(--foreground)]/75">
+                Testimonials are useful only when they connect back to outcomes. These are the patterns partners call out
+                after the system is actually operating.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal className="lg:col-span-5" delay={0.12}>
+            <PageHeroImageGrid images={[showcaseImages[8], showcaseImages[9], showcaseImages[1], showcaseImages[5]]} />
           </Reveal>
         </div>
       </section>
@@ -47,6 +53,12 @@ export default function ReviewsPage() {
       </section>
 
       <ReviewsMomentumWall testimonials={testimonials} />
+
+      <ImageEvidenceBand
+        eyebrow="[ Proof context ]"
+        title="The reviews sit beside real customer-facing creative."
+        images={[showcaseImages[8], showcaseImages[1], showcaseImages[9], showcaseImages[11], showcaseImages[3], showcaseImages[0]]}
+      />
 
       <section className="border-y border-[var(--border)] bg-[var(--surface)]/35 py-24 lg:py-32">
         <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:px-10">

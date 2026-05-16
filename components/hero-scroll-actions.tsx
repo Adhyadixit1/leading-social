@@ -25,7 +25,7 @@ export function HeroScrollActions({ children, className }: { children: ReactNode
 
       const rect = section.getBoundingClientRect();
       const travel = Math.max(rect.height - window.innerHeight, 1);
-      setStartOffset(window.innerWidth < 768 ? -200 : -100);
+      setStartOffset(window.innerWidth < 768 ? -150 : -100);
       setProgress(clamp(Math.abs(rect.top) / travel, 0, 1));
     };
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { DiagnosticArtifactWall, ProcessOperatingTimeline, WeeklyCadenceConsole } from "@/components/immersive-pages";
+import { ImageEvidenceBand, PageHeroImageGrid, showcaseImages } from "@/components/page-image-showcase";
 import { Reveal, RevealText } from "@/components/reveal";
 import { processSteps } from "@/lib/pages";
 
@@ -13,19 +14,24 @@ export default function ProcessPage() {
   return (
     <>
       <section className="pt-36 pb-20 lg:pt-44">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <p className="kbd mb-8">[ Process: How the system runs ]</p>
-          </Reveal>
-          <h1 className="font-display max-w-[17ch] text-[13vw] leading-[0.9] tracking-[-0.03em] text-balance md:text-[8vw] lg:text-[7.5rem]">
-            <RevealText text="From audit to" />{" "}
-            <RevealText text="operating rhythm." className="italic text-[var(--muted)]" />
-          </h1>
-          <Reveal delay={0.18}>
-            <p className="mt-10 max-w-2xl text-xl text-[var(--foreground)]/75">
-              The process is built to feel less like a vendor handoff and more like a growth room: diagnostics,
-              models, weekly decisions, and compounding standards.
-            </p>
+        <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:items-end lg:px-10">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <p className="kbd mb-8">[ Process: How the system runs ]</p>
+            </Reveal>
+            <h1 className="font-display max-w-[17ch] text-[13vw] leading-[0.9] tracking-[-0.03em] text-balance md:text-[8vw] lg:text-[7.5rem]">
+              <RevealText text="From audit to" />{" "}
+              <RevealText text="operating rhythm." className="italic text-[var(--muted)]" />
+            </h1>
+            <Reveal delay={0.18}>
+              <p className="mt-10 max-w-2xl text-xl text-[var(--foreground)]/75">
+                The process is built to feel less like a vendor handoff and more like a growth room: diagnostics,
+                models, weekly decisions, and compounding standards.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal className="lg:col-span-5" delay={0.12}>
+            <PageHeroImageGrid images={[showcaseImages[11], showcaseImages[3], showcaseImages[5], showcaseImages[1]]} />
           </Reveal>
         </div>
       </section>
@@ -44,6 +50,12 @@ export default function ProcessPage() {
       </section>
 
       <ProcessOperatingTimeline steps={processSteps} />
+
+      <ImageEvidenceBand
+        eyebrow="[ In the work ]"
+        title="Every process step is grounded in creative evidence."
+        images={[showcaseImages[4], showcaseImages[7], showcaseImages[8], showcaseImages[9], showcaseImages[0], showcaseImages[6]]}
+      />
 
       <DiagnosticArtifactWall />
 
