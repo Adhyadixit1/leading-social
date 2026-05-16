@@ -4,6 +4,7 @@ import { Reveal, RevealText } from "@/components/reveal";
 import { Counter } from "@/components/counter";
 import { Marquee } from "@/components/marquee";
 import { HeroCardField } from "@/components/hero-card-field";
+import { HeroScrollActions } from "@/components/hero-scroll-actions";
 import { HeroScrollTitle } from "@/components/hero-scroll-title";
 import {
   CameraCommandCenter,
@@ -33,14 +34,14 @@ export default function Home() {
         </div>
 
         <div className="sticky top-0 z-20 mx-auto flex h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-9 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-16 lg:pt-32">
-          <HeroScrollTitle className="mx-auto max-w-5xl text-center font-display text-[15vw] leading-[0.86] tracking-tight text-balance sm:text-[9.5vw] md:text-[7.6vw] lg:text-[6.9rem] xl:text-[7.8rem]">
+          <HeroScrollTitle className="mx-auto max-w-5xl text-center font-display text-[11.8vw] leading-[1.28] tracking-tight text-balance sm:text-[9.5vw] sm:leading-[0.86] md:text-[7.6vw] lg:text-[6.9rem] xl:text-[7.8rem]">
             <RevealText text="A growth" />{" "}
             <RevealText text="operating system" className="italic text-[var(--muted)]" delay={0.15} />
             <br />
             <RevealText text="for ecommerce." delay={0.3} />
           </HeroScrollTitle>
 
-          <Reveal className="mx-auto w-full max-w-xl text-center" delay={0.45}>
+          <HeroScrollActions className="mx-auto w-full max-w-xl text-center">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-center">
               <Link href="/contact" className="btn-primary justify-center px-5 py-3 text-sm sm:px-6">
                 Apply to Work Together <ArrowUpRight className="size-4" />
@@ -52,7 +53,7 @@ export default function Home() {
                 Request a Growth Audit
               </Link>
             </div>
-          </Reveal>
+          </HeroScrollActions>
         </div>
       </section>
 

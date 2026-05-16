@@ -10,11 +10,10 @@ function lerp(start: number, end: number, amount: number) {
   return start + (end - start) * amount;
 }
 
-export function HeroScrollTitle({ children, className }: { children: ReactNode; className: string }) {
-  const ref = useRef<HTMLHeadingElement>(null);
+export function HeroScrollActions({ children, className }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [startOffset, setStartOffset] = useState(300);
-  const [startScale, setStartScale] = useState(0.7);
+  const [startOffset, setStartOffset] = useState(-220);
 
   useEffect(() => {
     let frame = 0;
@@ -26,9 +25,7 @@ export function HeroScrollTitle({ children, className }: { children: ReactNode; 
 
       const rect = section.getBoundingClientRect();
       const travel = Math.max(rect.height - window.innerHeight, 1);
-      const isMobile = window.innerWidth < 768;
-      setStartOffset(isMobile ? 108 : 60);
-      setStartScale(isMobile ? 0.64 : 0.7);
+      setStartOffset(window.innerWidth < 768 ? -200 : -100);
       setProgress(clamp(Math.abs(rect.top) / travel, 0, 1));
     };
 
@@ -50,19 +47,17 @@ export function HeroScrollTitle({ children, className }: { children: ReactNode; 
 
   const movement = clamp(progress / 0.36, 0, 1);
   const y = lerp(startOffset, 0, movement);
-  const scale = lerp(startScale, 0.9, movement);
 
   return (
-    <h1
+    <div
       ref={ref}
       className={className}
       style={{
-        transform: `translate3d(0, ${y}px, 0) scale(${scale})`,
-        transformOrigin: "center top",
+        transform: `translate3d(0, ${y}px, 0)`,
         willChange: "transform",
       }}
     >
       {children}
-    </h1>
+    </div>
   );
 }

@@ -26,12 +26,13 @@ function getCircleTarget(index: number, total: number, width: number, height: nu
   const isMobile = width < 768;
   const xRadius = Math.min(width * (isMobile ? 0.38 : 0.38), isMobile ? 170 : 540);
   const yRadius = Math.min(height * (isMobile ? 0.2 : 0.28), isMobile ? 160 : 300);
+  const yOffset = isMobile ? -56 : 0;
   const angle = (index / total) * 360 - 90;
   const rad = (angle * Math.PI) / 180;
 
   return {
     x: Math.cos(rad) * xRadius,
-    y: Math.sin(rad) * yRadius,
+    y: Math.sin(rad) * yRadius + yOffset,
     rotate: angle + 90,
     scale: isMobile ? 0.82 : 0.9,
     opacity: 1,
