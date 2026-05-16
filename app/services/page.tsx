@@ -85,7 +85,7 @@ export default function ServicesPage() {
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border)] rounded-2xl overflow-hidden">
             {process.map((p, i) => (
-              <Reveal key={p.n} delay={i * 0.08} className="bg-[#07070A] p-8 lg:p-10 min-h-[280px] flex flex-col">
+              <Reveal key={p.n} delay={i * 0.08} className="bg-[var(--surface)] p-8 lg:p-10 min-h-[280px] flex flex-col">
                 <span className="kbd">{p.n}</span>
                 <h3 className="font-display text-3xl tracking-tight mt-10">{p.t}</h3>
                 <p className="text-[var(--foreground)]/70 mt-4 text-sm flex-1">{p.d}</p>

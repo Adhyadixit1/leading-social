@@ -50,7 +50,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <section className="py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 grid grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)] rounded-2xl overflow-hidden">
           {c.stats.map((s, i) => (
-            <Reveal key={s.k} delay={i * 0.08} className="bg-[#07070A] p-8 lg:p-10">
+            <Reveal key={s.k} delay={i * 0.08} className="bg-[var(--surface)] p-8 lg:p-10">
               <p className="font-display text-5xl md:text-6xl tracking-tight" style={{ color: c.accent }}>{s.v}</p>
               <p className="text-[var(--muted)] mt-3 text-sm uppercase tracking-wider">{s.k}</p>
             </Reveal>

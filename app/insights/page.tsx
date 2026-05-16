@@ -70,7 +70,7 @@ export default function InsightsPage() {
               key={c}
               className={`shrink-0 rounded-full border px-4 py-2 text-sm transition ${
                 i === 0
-                  ? "border-[var(--accent)] bg-[var(--accent)] text-[#07070A]"
+                  ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--palette-navy)]"
                   : "border-[var(--border)] text-[var(--foreground)]/75 hover:bg-[var(--surface)] hover:text-[var(--foreground)]"
               }`}
             >

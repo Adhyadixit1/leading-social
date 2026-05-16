@@ -50,7 +50,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section className="border-y border-[var(--border)]">
         <div className="mx-auto grid max-w-[1400px] gap-px bg-[var(--border)] px-6 lg:grid-cols-4 lg:px-10">
           {service.proof.map((item, index) => (
-            <Reveal key={item} delay={index * 0.06} className="bg-[#07070A] p-8 lg:p-10">
+            <Reveal key={item} delay={index * 0.06} className="bg-[var(--surface)] p-8 lg:p-10">
               <p className="font-display text-5xl text-[var(--accent)]">0{index + 1}</p>
               <p className="mt-10 text-lg text-[var(--foreground)]/82">{item}</p>
             </Reveal>
@@ -58,12 +58,12 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[#07070A]">
+      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[var(--palette-navy)]">
         <div className="mx-auto grid max-w-[1400px] gap-8 px-6 md:grid-cols-4 lg:px-10">
           {cadence.map((item, index) => (
             <Reveal key={item} delay={index * 0.05}>
               <p className="font-display text-5xl tracking-tight">0{index + 1}</p>
-              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">{item}</p>
+              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">{item}</p>
             </Reveal>
           ))}
         </div>
@@ -107,7 +107,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Reveal>
           <div className="grid gap-px overflow-hidden rounded-lg bg-[var(--border)] md:grid-cols-4">
             {["Plan", "Ship", "Measure", "Reallocate"].map((step, index) => (
-              <Reveal key={step} delay={index * 0.05} className="bg-[#07070A] p-8">
+              <Reveal key={step} delay={index * 0.05} className="bg-[var(--surface)] p-8">
                 <p className="kbd text-[var(--accent)]">{step}</p>
                 <p className="mt-16 text-[var(--foreground)]/70">
                   {step === "Plan"

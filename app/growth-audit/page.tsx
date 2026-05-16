@@ -51,7 +51,7 @@ export default function GrowthAuditPage() {
       <section className="border-y border-[var(--border)]">
         <div className="mx-auto grid max-w-[1400px] gap-px bg-[var(--border)] px-6 lg:grid-cols-3 lg:px-10">
           {audit.map((item, index) => (
-            <Reveal key={item} delay={index * 0.05} className="bg-[#07070A] p-8 lg:p-10">
+            <Reveal key={item} delay={index * 0.05} className="bg-[var(--surface)] p-8 lg:p-10">
               <p className="kbd text-[var(--accent)]">Audit lane 0{index + 1}</p>
               <h2 className="mt-10 font-display text-3xl tracking-tight">{item}</h2>
             </Reveal>
@@ -74,7 +74,7 @@ export default function GrowthAuditPage() {
           </Reveal>
           <div className="space-y-4 lg:col-span-7">
             {scorecard.map(([title, body], index) => (
-              <Reveal key={title} delay={index * 0.05} className="rounded-lg border border-[var(--border)] bg-[#07070A] p-7">
+              <Reveal key={title} delay={index * 0.05} className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-7">
                 <div className="grid gap-5 md:grid-cols-[120px_1fr]">
                   <p className="font-display text-5xl text-[var(--accent)]">0{index + 1}</p>
                   <div>

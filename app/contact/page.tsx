@@ -195,7 +195,7 @@ function Pill({ name, value }: { name: string; value: string }) {
   return (
     <label className="cursor-pointer">
       <input type="radio" name={name} value={value} className="peer sr-only" />
-      <span className="inline-block px-4 py-2 rounded-full text-sm border border-[var(--border)] text-[var(--foreground)]/80 peer-checked:bg-[var(--accent)] peer-checked:text-[#07070A] peer-checked:border-[var(--accent)] hover:border-[rgba(245,242,236,0.2)] transition">
+      <span className="inline-block px-4 py-2 rounded-full text-sm border border-[var(--border)] text-[var(--foreground)]/80 peer-checked:bg-[var(--accent)] peer-checked:text-[var(--palette-navy)] peer-checked:border-[var(--accent)] hover:border-[rgba(var(--palette-blue-rgb),0.2)] transition">
         {value}
       </span>
     </label>

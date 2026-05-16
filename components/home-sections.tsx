@@ -49,7 +49,7 @@ export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
   const grid = assets.slice(5);
 
   return (
-    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[#09090C] py-24 lg:py-32">
+    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-navy)] py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -72,7 +72,7 @@ export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
                 href={asset.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[#0D0D11] md:grid-cols-[0.95fr_1.05fr]"
+                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] md:grid-cols-[0.95fr_1.05fr]"
               >
                 <div className="relative min-h-[300px] overflow-hidden">
                   <Image
@@ -83,8 +83,8 @@ export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 45vw, 38vw"
                     className="absolute inset-0 h-full w-full object-cover transition duration-[1200ms] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070A]/72 via-transparent to-transparent" />
-                  <p className="absolute bottom-5 left-5 font-display text-7xl leading-none text-white/18">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/72 via-transparent to-transparent" />
+                  <p className="absolute bottom-5 left-5 font-display text-7xl leading-none text-[var(--palette-orange)]/18">
                     0{index + 1}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
                 href={asset.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[#0D0D11] sm:grid-cols-[180px_1fr]"
+                className="group grid overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] sm:grid-cols-[180px_1fr]"
               >
                 <div className="relative min-h-[170px] overflow-hidden">
                   <Image
@@ -155,7 +155,7 @@ export function MediaProofWall({ cases, assets }: { cases: CaseStudy[]; assets?:
   ];
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[#09090C] py-20 lg:py-28">
+    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-navy)] py-20 lg:py-28">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5 lg:py-16">
           <p className="kbd mb-6">[ Proof in motion ]</p>
@@ -190,18 +190,18 @@ export function CreativeAssetWall({ assets }: { assets: CreativeAsset[] }) {
   const library = assets.slice(10);
 
   return (
-    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[#F7F4EE] py-24 text-[#07070A] lg:py-32">
+    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-orange)] py-24 text-[var(--palette-navy)] lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">
               [ Creative library ]
             </p>
             <h2 className="mt-6 font-display max-w-[14ch] text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
               The proof belongs to the brands.
             </h2>
           </div>
-          <p className="max-w-md text-lg text-[#07070A]/66 lg:col-span-4 lg:col-start-9">
+          <p className="max-w-md text-lg text-[var(--palette-navy)]/66 lg:col-span-4 lg:col-start-9">
             A working library of product, lifestyle, offer, testimonial, and story assets across wellness, nutrition,
             apparel, beauty, beverage, and consumer brands.
           </p>
@@ -212,22 +212,22 @@ export function CreativeAssetWall({ assets }: { assets: CreativeAsset[] }) {
             {featured.map((asset, index) => (
               <article
                 key={`${asset.brand}-${asset.title}`}
-                className={index === 0 ? "group overflow-hidden rounded-lg border border-[#07070A]/12 bg-white md:col-span-2" : "group overflow-hidden rounded-lg border border-[#07070A]/12 bg-white"}
+                className={index === 0 ? "group overflow-hidden rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--palette-orange)] md:col-span-2" : "group overflow-hidden rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--palette-orange)]"}
               >
                 <div className={index === 0 ? "relative aspect-[16/9] overflow-hidden" : "relative aspect-[4/5] overflow-hidden"}>
                   <div
                     className="absolute inset-0 bg-cover bg-center transition duration-[1200ms] group-hover:scale-105"
                     style={{ backgroundImage: `url('${asset.image}')` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070A]/55 via-transparent to-transparent" />
-                  <span className="absolute left-4 top-4 rounded-full bg-[#F7F4EE]/92 px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-[#07070A]/70">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/55 via-transparent to-transparent" />
+                  <span className="absolute left-4 top-4 rounded-full bg-[var(--palette-orange)]/92 px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/70">
                     {asset.category}
                   </span>
                 </div>
                 <div className="p-5">
                   <p className="font-display text-2xl tracking-tight">{asset.brand}</p>
-                  <p className="mt-1 text-sm font-medium text-[#07070A]/64">{asset.title}</p>
-                  <p className="mt-4 line-clamp-2 text-sm leading-6 text-[#07070A]/62">{asset.description}</p>
+                  <p className="mt-1 text-sm font-medium text-[var(--palette-navy)]/64">{asset.title}</p>
+                  <p className="mt-4 line-clamp-2 text-sm leading-6 text-[var(--palette-navy)]/62">{asset.description}</p>
                 </div>
               </article>
             ))}
@@ -237,18 +237,18 @@ export function CreativeAssetWall({ assets }: { assets: CreativeAsset[] }) {
             {library.map((asset) => (
               <article
                 key={`${asset.brand}-${asset.title}`}
-                className="grid overflow-hidden rounded-lg border border-[#07070A]/12 bg-white sm:grid-cols-[138px_1fr]"
+                className="grid overflow-hidden rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--palette-orange)] sm:grid-cols-[138px_1fr]"
               >
-                <div className="relative min-h-[138px] overflow-hidden bg-[#E7E0D6]">
+                <div className="relative min-h-[138px] overflow-hidden bg-[var(--palette-blue)]">
                   <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${asset.image}')` }} />
                 </div>
                 <div className="p-4">
-                  <div className="flex flex-wrap items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[#07070A]/48">
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/48">
                     <span>{asset.brand}</span>
                     <span>{asset.category}</span>
                   </div>
                   <h3 className="mt-3 font-display text-xl leading-tight tracking-tight">{asset.title}</h3>
-                  <p className="mt-3 line-clamp-2 text-sm leading-5 text-[#07070A]/58">{asset.description}</p>
+                  <p className="mt-3 line-clamp-2 text-sm leading-5 text-[var(--palette-navy)]/58">{asset.description}</p>
                 </div>
               </article>
             ))}
@@ -266,7 +266,7 @@ function ProofTile({ label, value, image }: { label: string; value: string; imag
         className="absolute inset-0 bg-cover bg-center opacity-70 transition duration-700 group-hover:scale-105 group-hover:opacity-90"
         style={{ backgroundImage: image ? `url('${image}')` : undefined }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#07070A] via-[#07070A]/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-[var(--surface)]/45 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-5">
         <p className="font-display text-4xl tracking-tight">{value}</p>
         <p className="kbd mt-2 text-[var(--foreground)]/55">{label}</p>
@@ -304,7 +304,7 @@ export function StickyGrowthSystem({ services }: { services: Service[] }) {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ amount: 0.45, once: false }}
                 transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[#0B0B0E] p-7 md:p-9 lg:p-10"
+                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] p-7 md:p-9 lg:p-10"
               >
                 <div className="absolute inset-y-0 left-0 w-1 bg-[var(--accent)] opacity-0 transition group-hover:opacity-100" />
                 <div className="mb-12 flex items-start justify-between gap-8">
@@ -341,8 +341,8 @@ export function CameraCommandCenter({ cases }: { cases: CaseStudy[] }) {
   const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [90, -90]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[#0A0A0D] py-24 lg:py-36">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(212,255,58,0.1),transparent_38%)]" />
+    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-navy)] py-24 lg:py-36">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_45%,rgba(var(--palette-blue-rgb),0.1),transparent_38%)]" />
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:items-center lg:px-10">
         <div className="lg:col-span-5">
           <p className="kbd mb-6">[ Command center ]</p>
@@ -358,7 +358,7 @@ export function CameraCommandCenter({ cases }: { cases: CaseStudy[] }) {
         <div className="lg:col-span-7">
           <motion.div
             style={{ rotateX: rotate, scale, y, transformPerspective: 1200 }}
-            className="relative mx-auto max-w-3xl rounded-lg border border-[var(--border)] bg-[#101014] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.38)] md:p-5"
+            className="relative mx-auto max-w-3xl rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] p-4 shadow-[0_40px_120px_rgba(var(--palette-navy-rgb),0.38)] md:p-5"
           >
             <div className="mb-4 flex items-center justify-between border-b border-[var(--border)] pb-4">
               <div>
@@ -378,7 +378,7 @@ export function CameraCommandCenter({ cases }: { cases: CaseStudy[] }) {
                 ["Margin signal", "31.4%", "healthy"],
                 ["Creative tests", "84", "12 winners"],
               ].map(([label, value, meta]) => (
-                <div key={label} className="rounded-md border border-[var(--border)] bg-[#07070A] p-4">
+                <div key={label} className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-4">
                   <p className="kbd">{label}</p>
                   <p className="mt-5 font-display text-4xl tracking-tight">{value}</p>
                   <p className="mt-2 text-xs text-[var(--accent)]">{meta}</p>
@@ -387,7 +387,7 @@ export function CameraCommandCenter({ cases }: { cases: CaseStudy[] }) {
             </div>
 
             <div className="mt-4 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-              <div className="rounded-md border border-[var(--border)] bg-[#07070A] p-5">
+              <div className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
                 <div className="mb-8 flex items-center justify-between">
                   <p className="kbd">Revenue curve</p>
                   <p className="text-xs text-[var(--muted)]">90-day blended view</p>
@@ -408,7 +408,7 @@ export function CameraCommandCenter({ cases }: { cases: CaseStudy[] }) {
                   <Link
                     key={item.slug}
                     href={`/case-studies/${item.slug}`}
-                    className="group flex items-center justify-between gap-4 rounded-md border border-[var(--border)] bg-[#07070A] p-4"
+                    className="group flex items-center justify-between gap-4 rounded-md border border-[var(--border)] bg-[var(--surface)] p-4"
                   >
                     <div>
                       <p className="font-display text-xl">{item.brand}</p>
@@ -443,7 +443,7 @@ export function ResultsRail({ cases }: { cases: CaseStudy[] }) {
 
   return (
     <section ref={ref} id="work" className="relative border-y border-[var(--border)] lg:h-[260vh]">
-      <div className="overflow-hidden bg-[#07070A] py-24 lg:sticky lg:top-0 lg:min-h-screen lg:py-28">
+      <div className="overflow-hidden bg-[var(--surface)] py-24 lg:sticky lg:top-0 lg:min-h-screen lg:py-28">
         <div className="mx-auto mb-14 flex max-w-[1400px] flex-col gap-8 px-6 lg:flex-row lg:items-end lg:justify-between lg:px-10">
           <div>
             <p className="kbd mb-6">[ 04: Selected work ]</p>
@@ -468,9 +468,9 @@ export function ResultsRail({ cases }: { cases: CaseStudy[] }) {
                   className="absolute inset-0 bg-cover bg-center transition duration-[1200ms] group-hover:scale-105"
                   style={{ backgroundImage: `url('${item.image}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07070A] via-[#07070A]/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-[var(--surface)]/25 to-transparent" />
                 <div className="absolute left-5 top-5 flex items-center gap-3">
-                  <span className="kbd rounded-full border border-[var(--border)] bg-[#07070A]/70 px-3 py-1.5">
+                  <span className="kbd rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-3 py-1.5">
                     {item.sector}
                   </span>
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: item.accent }} />

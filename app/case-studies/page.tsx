@@ -73,7 +73,7 @@ export default function CaseStudiesPage() {
               <Link
                 key={c.slug}
                 href={`/case-studies/${c.slug}`}
-                className="group flex items-center justify-between gap-5 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:bg-[#101014]"
+                className="group flex items-center justify-between gap-5 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:bg-[var(--palette-navy)]"
               >
                 <span className="font-display text-2xl tracking-tight">{c.brand}</span>
                 <ArrowUpRight className="size-5 text-[var(--muted)] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--accent)]" />

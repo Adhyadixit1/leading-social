@@ -33,19 +33,19 @@ export function PageSignalStack({
     <section
       ref={ref}
       className={`relative overflow-hidden border-y border-[var(--border)] py-24 lg:py-32 ${
-        light ? "bg-[var(--foreground)] text-[#07070A]" : "bg-[var(--surface)]/35"
+        light ? "bg-[var(--foreground)] text-[var(--palette-navy)]" : "bg-[var(--surface)]/35"
       }`}
     >
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
-            <p className={light ? "font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55" : "kbd"}>
+            <p className={light ? "font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55" : "kbd"}>
               {eyebrow}
             </p>
             <h2 className="mt-6 max-w-[15ch] font-display text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
               {title}
             </h2>
-            <p className={light ? "mt-8 max-w-md text-[#07070A]/68" : "mt-8 max-w-md text-[var(--foreground)]/68"}>
+            <p className={light ? "mt-8 max-w-md text-[var(--palette-navy)]/68" : "mt-8 max-w-md text-[var(--foreground)]/68"}>
               {body}
             </p>
           </div>
@@ -62,16 +62,16 @@ export function PageSignalStack({
                 transition={{ delay: index * 0.06, duration: 0.55, ease: "easeOut" }}
                 className={`min-h-[280px] rounded-lg border p-7 transition hover:-translate-y-1 ${
                   light
-                    ? "border-[#07070A]/12 bg-[#F7F4EE] text-[#07070A] hover:bg-white"
-                    : "border-[var(--border)] bg-[#07070A] hover:bg-[#101014]"
+                    ? "border-[var(--palette-navy)]/12 bg-[var(--palette-orange)] text-[var(--palette-navy)] hover:bg-[var(--palette-orange)]"
+                    : "border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--palette-navy)]"
                 }`}
               >
                 <div className="flex items-start justify-between gap-5">
-                  <p className={light ? "font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/48" : "kbd text-[var(--accent)]"}>
+                  <p className={light ? "font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/48" : "kbd text-[var(--accent)]"}>
                     {item.label}
                   </p>
                   {item.metric ? (
-                    <p className={`font-display text-4xl leading-none ${light ? "text-[#07070A]" : "text-[var(--accent)]"}`}>
+                    <p className={`font-display text-4xl leading-none ${light ? "text-[var(--palette-navy)]" : "text-[var(--accent)]"}`}>
                       {item.metric}
                     </p>
                   ) : null}
@@ -79,7 +79,7 @@ export function PageSignalStack({
                 <h3 className="mt-16 font-display text-3xl leading-tight tracking-tight text-balance md:text-4xl">
                   {item.title}
                 </h3>
-                <p className={light ? "mt-5 text-sm leading-6 text-[#07070A]/65" : "mt-5 text-sm leading-6 text-[var(--foreground)]/64"}>
+                <p className={light ? "mt-5 text-sm leading-6 text-[var(--palette-navy)]/65" : "mt-5 text-sm leading-6 text-[var(--foreground)]/64"}>
                   {item.body}
                 </p>
               </motion.article>

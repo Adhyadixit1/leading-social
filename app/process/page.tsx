@@ -30,12 +30,12 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[#07070A]">
+      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[var(--palette-navy)]">
         <div className="mx-auto grid max-w-[1400px] gap-8 px-6 md:grid-cols-4 lg:px-10">
           {["48h audit review", "30d model build", "60d system launch", "90d scale plan"].map((item, index) => (
             <Reveal key={item} delay={index * 0.05}>
               <p className="font-display text-5xl tracking-tight">{item.split(" ")[0]}</p>
-              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">
+              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">
                 {item.split(" ").slice(1).join(" ")}
               </p>
             </Reveal>

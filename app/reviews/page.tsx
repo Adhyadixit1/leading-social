@@ -33,12 +33,12 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[#07070A]">
+      <section className="border-y border-[var(--border)] bg-[var(--foreground)] py-12 text-[var(--palette-navy)]">
         <div className="mx-auto grid max-w-[1400px] gap-8 px-6 md:grid-cols-4 lg:px-10">
           {proof.map((item, index) => (
             <Reveal key={item} delay={index * 0.05}>
               <p className="font-display text-4xl tracking-tight md:text-5xl">{item.split(" ")[0]}</p>
-              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">
+              <p className="mt-2 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">
                 {item.split(" ").slice(1).join(" ")}
               </p>
             </Reveal>
@@ -60,7 +60,7 @@ export default function ReviewsPage() {
           </Reveal>
           <div className="space-y-4 lg:col-span-7">
             {themes.map((theme, index) => (
-              <Reveal key={theme} delay={index * 0.05} className="rounded-lg border border-[var(--border)] bg-[#07070A] p-7">
+              <Reveal key={theme} delay={index * 0.05} className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-7">
                 <div className="flex items-center justify-between gap-8">
                   <div>
                     <p className="kbd text-[var(--accent)]">Pattern 0{index + 1}</p>

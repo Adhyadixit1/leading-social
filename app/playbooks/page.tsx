@@ -37,7 +37,7 @@ export default function PlaybooksPage() {
               key={track}
               className={`shrink-0 rounded-full border px-4 py-2 text-sm ${
                 index === 0
-                  ? "border-[var(--accent)] bg-[var(--accent)] text-[#07070A]"
+                  ? "border-[var(--accent)] bg-[var(--accent)] text-[var(--palette-navy)]"
                   : "border-[var(--border)] text-[var(--foreground)]/72"
               }`}
             >
@@ -68,7 +68,7 @@ export default function PlaybooksPage() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-px overflow-hidden rounded-lg bg-[var(--border)] md:grid-cols-2">
             {playbooks.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.06} className="bg-[#07070A] p-8 transition hover:bg-[var(--surface)] lg:p-10">
+              <Reveal key={item.title} delay={index * 0.06} className="bg-[var(--surface)] p-8 transition hover:bg-[var(--surface)] lg:p-10">
                 <p className="kbd text-[var(--accent)]">{item.category}</p>
                 <h2 className="mt-16 font-display text-4xl leading-tight tracking-tight text-balance">{item.title}</h2>
                 <p className="mt-5 max-w-xl text-[var(--foreground)]/65">{item.body}</p>
@@ -89,7 +89,7 @@ export default function PlaybooksPage() {
             </h2>
           </Reveal>
           <Reveal className="lg:col-span-5" delay={0.12}>
-            <form className="rounded-lg border border-[var(--border)] bg-[#07070A] p-3 sm:flex sm:gap-3">
+            <form className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-3 sm:flex sm:gap-3">
               <input
                 type="email"
                 placeholder="founder@brand.com"

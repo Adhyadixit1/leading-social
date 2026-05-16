@@ -405,7 +405,7 @@ export const cases = [
     sector: "Beauty",
     headline: "Scaled serum trials and testimonial-led acquisition without losing premium skincare cues.",
     image: "https://i.ibb.co/7Jwbvd88/Nyrah-Beauty-Post-041626-15.jpg",
-    accent: "#F2C7B6",
+    accent: "#fc2c6d",
     stats: [
       { k: "Net revenue", v: "+312%" },
       { k: "Blended ROAS", v: "3.8x" },
@@ -418,7 +418,7 @@ export const cases = [
     sector: "Apparel",
     headline: "Rebuilt the promotional creative system around premium product clarity.",
     image: "https://i.ibb.co/SDYB3Sb3/Parke-Ronen-Post-031826-5.jpg",
-    accent: "#C7E8C5",
+    accent: "#3399ff",
     stats: [
       { k: "NC revenue", v: "+207%" },
       { k: "Creative tests / mo", v: "84" },
@@ -431,7 +431,7 @@ export const cases = [
     sector: "Supplements",
     headline: "Turned mature wellness stories into a repeatable performance creative engine.",
     image: "https://i.ibb.co/MdXHXMY/Fab-U-FB-Ads-Post-04132026-2.jpg",
-    accent: "#D4FF3A",
+    accent: "#fd9b33",
     stats: [
       { k: "Email rev share", v: "39%" },
       { k: "LTV / 90d", v: "+62%" },
@@ -444,7 +444,7 @@ export const cases = [
     sector: "Wellness",
     headline: "Positioned premium sauna content around architecture, ritual, and social wellness.",
     image: "https://i.ibb.co/yFQLY5Hq/Axis-Post-6.jpg",
-    accent: "#B7C8FF",
+    accent: "#194a7b",
     stats: [
       { k: "Monthly revenue", v: "$1.2M" },
       { k: "Contribution margin", v: "+9pts" },
@@ -457,7 +457,7 @@ export const cases = [
     sector: "Nutrition",
     headline: "Built a product-led creative library around flavor variety, trust, and offer clarity.",
     image: "https://i.ibb.co/LXZVJhx8/ARN-042826-Post-2.jpg",
-    accent: "#FF78B7",
+    accent: "#fc2c6d",
     stats: [
       { k: "Offer CVR", v: "+44%" },
       { k: "Creative tests / mo", v: "61" },
@@ -470,7 +470,7 @@ export const cases = [
     sector: "Beverage",
     headline: "Separated calm and energy use cases with clearer mobile-first story creative.",
     image: "https://i.ibb.co/DPZLxZP0/blynk-Story-0226-7.jpg",
-    accent: "#F36C5B",
+    accent: "#fd9b33",
     stats: [
       { k: "Story CTR", v: "+53%" },
       { k: "CPA", v: "-29%" },

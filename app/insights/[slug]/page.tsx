@@ -42,7 +42,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div className="mx-auto max-w-[1100px] px-6 lg:px-10 mt-16">
-          <div className="aspect-[16/8] rounded-2xl bg-gradient-to-br from-[var(--accent)]/30 via-[var(--surface)] to-[#07070A] border border-[var(--border)]" />
+          <div className="aspect-[16/8] rounded-2xl bg-gradient-to-br from-[var(--accent)]/30 via-[var(--surface)] to-[var(--surface)] border border-[var(--border)]" />
         </div>
 
         <div className="mx-auto max-w-[720px] px-6 lg:px-10 py-20 prose-content">
@@ -98,7 +98,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-[var(--border)] rounded-2xl overflow-hidden">
             {related.map((p) => (
-              <Link key={p.slug} href={`/insights/${p.slug}`} className="bg-[#07070A] p-8 lg:p-10 hover:bg-[var(--surface)] transition group flex flex-col">
+              <Link key={p.slug} href={`/insights/${p.slug}`} className="bg-[var(--surface)] p-8 lg:p-10 hover:bg-[var(--surface)] transition group flex flex-col">
                 <span className="kbd text-[var(--accent)]">{p.category}</span>
                 <h3 className="font-display text-2xl tracking-tight mt-10 flex-1 text-balance">{p.title}</h3>
                 <div className="flex items-center justify-between mt-8 text-xs text-[var(--muted)]">

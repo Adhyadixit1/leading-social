@@ -67,7 +67,7 @@ export function ServicesControlRoom({ services }: { services: Service[] }) {
   const rotate = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [-4, 4]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[#09090C] py-24 lg:py-32">
+    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-navy)] py-24 lg:py-32">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:items-start lg:px-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
@@ -86,7 +86,7 @@ export function ServicesControlRoom({ services }: { services: Service[] }) {
                 ["Lifecycle", "Always-on"],
                 ["Forecast", "Monthly"],
               ].map(([label, value]) => (
-                <div key={label} className="bg-[#07070A] p-5">
+                <div key={label} className="bg-[var(--surface)] p-5">
                   <p className="kbd text-[var(--accent)]">{label}</p>
                   <p className="mt-4 font-display text-2xl tracking-tight">{value}</p>
                 </div>
@@ -102,7 +102,7 @@ export function ServicesControlRoom({ services }: { services: Service[] }) {
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
-                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[#0D0D11] p-7 transition hover:-translate-y-1 hover:bg-[#121216] md:p-9"
+                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] p-7 transition hover:-translate-y-1 hover:bg-[var(--palette-navy)] md:p-9"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-[var(--accent)] opacity-0 transition group-hover:opacity-100" />
                 <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-start">
@@ -120,7 +120,7 @@ export function ServicesControlRoom({ services }: { services: Service[] }) {
                       {service.proof.map((item) => (
                         <span
                           key={item}
-                          className="rounded-md border border-[var(--border)] bg-[#07070A] px-4 py-3 text-sm text-[var(--foreground)]/72"
+                          className="rounded-md border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--foreground)]/72"
                         >
                           {item}
                         </span>
@@ -174,9 +174,9 @@ export function ProcessOperatingTimeline({ steps }: { steps: ProcessStep[] }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ amount: 0.45, once: false }}
                 transition={{ duration: 0.7, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                className="relative rounded-lg border border-[var(--border)] bg-[#0B0B0E] p-7 md:ml-16 md:p-9"
+                className="relative rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] p-7 md:ml-16 md:p-9"
               >
-                <span className="absolute -left-[52px] top-9 hidden h-3 w-3 rounded-full border border-[#07070A] bg-[var(--accent)] md:block" />
+                <span className="absolute -left-[52px] top-9 hidden h-3 w-3 rounded-full border border-[var(--palette-navy)] bg-[var(--accent)] md:block" />
                 <div className="grid gap-8 md:grid-cols-[120px_1fr]">
                   <p className="font-display text-7xl leading-none text-[var(--accent)]">{step.n}</p>
                   <div>
@@ -184,7 +184,7 @@ export function ProcessOperatingTimeline({ steps }: { steps: ProcessStep[] }) {
                     <p className="mt-5 max-w-2xl text-lg leading-7 text-[var(--foreground)]/70">{step.body}</p>
                     <div className="mt-8 grid gap-3 sm:grid-cols-3">
                       {["Owner", "Signal", "Decision"].map((label) => (
-                        <div key={label} className="rounded-md border border-[var(--border)] bg-[#07070A] p-4">
+                        <div key={label} className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-4">
                           <p className="kbd text-[var(--accent)]">{label}</p>
                           <p className="mt-4 text-sm text-[var(--foreground)]/64">Defined before the next sprint.</p>
                         </div>
@@ -209,7 +209,7 @@ export function CaseStudyCinematicRail({ cases }: { cases: CaseStudy[] }) {
 
   return (
     <section ref={ref} className="relative border-y border-[var(--border)] lg:h-[250vh]">
-      <div className="overflow-hidden bg-[#07070A] py-24 lg:sticky lg:top-0 lg:min-h-screen lg:py-28">
+      <div className="overflow-hidden bg-[var(--surface)] py-24 lg:sticky lg:top-0 lg:min-h-screen lg:py-28">
         <div className="mx-auto mb-12 grid max-w-[1400px] gap-8 px-6 lg:grid-cols-12 lg:items-end lg:px-10">
           <div className="lg:col-span-7">
             <p className="kbd mb-6">[ Case evidence ]</p>
@@ -234,14 +234,14 @@ export function CaseStudyCinematicRail({ cases }: { cases: CaseStudy[] }) {
                   className="absolute inset-0 bg-cover bg-center transition duration-[1400ms] group-hover:scale-105"
                   style={{ backgroundImage: `url('${item.image}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07070A] via-[#07070A]/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-[var(--surface)]/35 to-transparent" />
                 <div className="absolute left-6 top-6 flex items-center gap-3">
-                  <span className="kbd rounded-full border border-[var(--border)] bg-[#07070A]/75 px-3 py-1.5 backdrop-blur">
+                  <span className="kbd rounded-full border border-[var(--border)] bg-[var(--surface)]/75 px-3 py-1.5 backdrop-blur">
                     {item.sector}
                   </span>
                   <span className="h-3 w-3 rounded-full" style={{ background: item.accent }} />
                 </div>
-                <p className="absolute bottom-6 left-6 font-display text-8xl leading-none text-white/20">
+                <p className="absolute bottom-6 left-6 font-display text-8xl leading-none text-[var(--palette-orange)]/20">
                   0{index + 1}
                 </p>
               </div>
@@ -282,7 +282,7 @@ export function ReviewsMomentumWall({ testimonials }: { testimonials: Testimonia
   const doubled = [...testimonials, ...testimonials];
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[#09090C] py-24 lg:py-32">
+    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--palette-navy)] py-24 lg:py-32">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
@@ -300,7 +300,7 @@ export function ReviewsMomentumWall({ testimonials }: { testimonials: Testimonia
                 ["Tracked revenue", "$420M+"],
                 ["Regions", "US UK EU"],
               ].map(([label, value]) => (
-                <div key={label} className="bg-[#07070A] p-5">
+                <div key={label} className="bg-[var(--surface)] p-5">
                   <p className="kbd text-[var(--accent)]">{label}</p>
                   <p className="mt-4 font-display text-3xl tracking-tight">{value}</p>
                 </div>
@@ -328,7 +328,7 @@ export function ReviewsMomentumWall({ testimonials }: { testimonials: Testimonia
 
 function ReviewCard({ item }: { item: Testimonial }) {
   return (
-    <article className="rounded-lg border border-[var(--border)] bg-[#0D0D11] p-7">
+    <article className="rounded-lg border border-[var(--border)] bg-[var(--palette-navy)] p-7">
       <p className="font-display text-5xl text-[var(--accent)]">{item.metric}</p>
       <blockquote className="mt-10 font-display text-2xl leading-tight tracking-tight text-balance">
         &ldquo;{item.quote}&rdquo;
@@ -348,17 +348,17 @@ export function InsightsEditorialRoom({ insights }: { insights: Insight[] }) {
   const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [64, -64]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--foreground)] py-24 text-[#07070A] lg:py-32">
+    <section ref={ref} className="relative overflow-hidden border-y border-[var(--border)] bg-[var(--foreground)] py-24 text-[var(--palette-navy)] lg:py-32">
       <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">
               [ Editorial desk ]
             </p>
             <h2 className="mt-6 max-w-[13ch] font-display text-5xl leading-[0.92] tracking-tight text-balance md:text-7xl">
               Useful ideas have a scoreboard.
             </h2>
-            <p className="mt-8 max-w-md text-lg text-[#07070A]/68">
+            <p className="mt-8 max-w-md text-lg text-[var(--palette-navy)]/68">
               Every memo is written around a decision an operator can make this week: spend, creative, retention,
               cash, or AI-assisted workflow.
             </p>
@@ -368,7 +368,7 @@ export function InsightsEditorialRoom({ insights }: { insights: Insight[] }) {
         <motion.div style={{ y }} className="lg:col-span-7">
           <Link
             href={`/insights/${insights[0].slug}`}
-            className="group grid min-h-[520px] rounded-lg bg-[#07070A] p-7 text-[var(--foreground)] transition hover:-translate-y-1 md:p-10"
+            className="group grid min-h-[520px] rounded-lg bg-[var(--surface)] p-7 text-[var(--foreground)] transition hover:-translate-y-1 md:p-10"
           >
             <div className="flex items-start justify-between gap-8">
               <div>
@@ -390,19 +390,19 @@ export function InsightsEditorialRoom({ insights }: { insights: Insight[] }) {
               <Link
                 key={post.slug}
                 href={`/insights/${post.slug}`}
-                className="group rounded-lg border border-[#07070A]/12 bg-[#F7F4EE] p-7 transition hover:bg-white"
+                className="group rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--palette-orange)] p-7 transition hover:bg-[var(--palette-orange)]"
               >
                 <div className="flex items-center justify-between gap-5">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-[#07070A]/50">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/50">
                     {post.category}
                   </p>
-                  <span className="font-display text-4xl text-[#07070A]/18">0{index + 2}</span>
+                  <span className="font-display text-4xl text-[var(--palette-navy)]/18">0{index + 2}</span>
                 </div>
                 <h3 className="mt-16 font-display text-3xl leading-tight tracking-tight text-balance">
                   {post.title}
                 </h3>
-                <p className="mt-5 text-sm leading-6 text-[#07070A]/62">{post.excerpt}</p>
-                <div className="mt-8 flex items-center justify-between border-t border-[#07070A]/10 pt-5 text-xs uppercase tracking-wider text-[#07070A]/46">
+                <p className="mt-5 text-sm leading-6 text-[var(--palette-navy)]/62">{post.excerpt}</p>
+                <div className="mt-8 flex items-center justify-between border-t border-[var(--palette-navy)]/10 pt-5 text-xs uppercase tracking-wider text-[var(--palette-navy)]/46">
                   <span>{post.date}</span>
                   <span>{post.read}</span>
                 </div>
@@ -425,7 +425,7 @@ export function WeeklyCadenceConsole() {
   ];
 
   return (
-    <section className="border-y border-[var(--border)] bg-[#0A0A0D] py-24 lg:py-32">
+    <section className="border-y border-[var(--border)] bg-[var(--palette-navy)] py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -446,7 +446,7 @@ export function WeeklyCadenceConsole() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: index * 0.06, duration: 0.55, ease: "easeOut" }}
-              className="min-h-[300px] bg-[#07070A] p-7"
+              className="min-h-[300px] bg-[var(--surface)] p-7"
             >
               <CalendarDays className="size-5 text-[var(--accent)]" />
               <p className="mt-8 font-display text-5xl tracking-tight">{day}</p>
@@ -487,7 +487,7 @@ export function DiagnosticArtifactWall() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ amount: 0.5, once: false }}
               transition={{ duration: 0.65, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-lg border border-[var(--border)] bg-[#07070A] p-7"
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-7"
             >
               <div className="flex items-start justify-between gap-8">
                 <div>

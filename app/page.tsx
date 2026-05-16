@@ -3,7 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal, RevealText } from "@/components/reveal";
 import { Counter } from "@/components/counter";
 import { Marquee } from "@/components/marquee";
-import { Globe } from "@/components/globe";
+import { HeroCardField } from "@/components/hero-card-field";
+import { HeroScrollTitle } from "@/components/hero-scroll-title";
 import {
   CameraCommandCenter,
   CreativeAssetWall,
@@ -14,115 +15,42 @@ import {
 } from "@/components/home-sections";
 import { brands, cases, creativeAssets, insights, metrics, principles, services, socialAssets } from "@/lib/content";
 
-const heroImageGrid = [
-  creativeAssets[0].image,
-  creativeAssets[8].image,
-  creativeAssets[24].image,
-  creativeAssets[33].image,
-  creativeAssets[35].image,
-  creativeAssets[2].image,
-  creativeAssets[41].image,
-  creativeAssets[44].image,
-];
+const heroImageGrid = Array.from({ length: 20 }, (_, index) => {
+  const id = String(index + 1).padStart(2, "0");
+  return `/hero-cache/hero-${id}.jpg`;
+});
 
 export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden min-h-[92vh] flex items-center">
+      <section className="relative flex min-h-[170svh] items-start overflow-x-clip px-0 pb-0 pt-24 sm:min-h-[165vh] sm:pt-28 lg:min-h-[178vh] lg:pt-32">
         <div className="absolute inset-0 gradient-radial pointer-events-none" />
 
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute left-1/2 top-[58%] z-[4] grid w-[128vw] max-w-[1320px] -translate-x-1/2 -translate-y-1/2 grid-cols-2 gap-2 opacity-40 sm:grid-cols-4 sm:gap-3 sm:opacity-60 md:top-[60%]">
-            {heroImageGrid.map((image, index) => (
-              <div
-                key={`${image}-${index}`}
-                className="relative aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-[#101014]"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${image}')` }}
-                />
-                <div className="absolute inset-0 bg-[#07070A]/38 sm:bg-[#07070A]/24" />
-              </div>
-            ))}
-          </div>
-          <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-[43%] w-[112vw] max-w-[1120px] aspect-square pointer-events-auto opacity-100">
-            <Globe />
-          </div>
-          <div className="absolute inset-0 z-[5] bg-[radial-gradient(ellipse_58%_44%_at_50%_55%,rgba(7,7,10,0.36)_0%,rgba(7,7,10,0.18)_48%,rgba(7,7,10,0.05)_72%,transparent_90%)]" />
-          <div className="absolute inset-x-0 bottom-0 z-[12] h-48 bg-gradient-to-t from-[#07070A] via-[#07070A]/75 to-transparent" />
-          <div className="absolute inset-x-0 top-0 z-[12] h-32 bg-gradient-to-b from-[#07070A] to-transparent" />
-          <div className="absolute inset-y-0 left-0 z-[12] w-24 bg-gradient-to-r from-[#07070A] to-transparent" />
-          <div className="absolute inset-y-0 right-0 z-[12] w-24 bg-gradient-to-l from-[#07070A] to-transparent" />
+          <HeroCardField images={heroImageGrid} />
+          <div className="absolute inset-x-0 top-0 z-[12] h-28 bg-gradient-to-b from-[var(--surface)] to-transparent" />
         </div>
 
-        <div className="relative z-20 mx-auto max-w-[1400px] px-6 lg:px-10 w-full">
-          <Reveal className="flex items-center justify-center gap-3 mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
-            </span>
-            <p className="kbd">[ Scaling Shopify brands across US · UK · EU ]</p>
-          </Reveal>
-
-          <h1 className="font-display text-center text-[14vw] md:text-[10vw] lg:text-[8.5rem] xl:text-[10rem] leading-[0.9] tracking-[-0.035em] text-balance">
+        <div className="sticky top-0 z-20 mx-auto flex h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-9 pt-24 sm:px-6 sm:pb-12 sm:pt-28 lg:px-10 lg:pb-16 lg:pt-32">
+          <HeroScrollTitle className="mx-auto max-w-5xl text-center font-display text-[15vw] leading-[0.86] tracking-tight text-balance sm:text-[9.5vw] md:text-[7.6vw] lg:text-[6.9rem] xl:text-[7.8rem]">
             <RevealText text="A growth" />{" "}
             <RevealText text="operating system" className="italic text-[var(--muted)]" delay={0.15} />
             <br />
             <RevealText text="for ecommerce." delay={0.3} />
-          </h1>
+          </HeroScrollTitle>
 
-          <Reveal className="mt-10 lg:mt-14 max-w-2xl mx-auto text-center" delay={0.5}>
-            <p className="text-lg md:text-xl text-[var(--foreground)]/75 text-pretty">
-              We help Shopify brands doing <span className="text-[var(--foreground)]">$5M to $30M</span> scale
-              profitably by combining paid acquisition, creative strategy, retention and financial forecasting into one
-              operator-led system.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-              <Link href="/contact" className="btn-primary">
+          <Reveal className="mx-auto w-full max-w-xl text-center" delay={0.45}>
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-center">
+              <Link href="/contact" className="btn-primary justify-center px-5 py-3 text-sm sm:px-6">
                 Apply to Work Together <ArrowUpRight className="size-4" />
               </Link>
-              <Link href="/contact?audit=1" className="btn-ghost">
+              <Link
+                href="/contact?audit=1"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white bg-white px-5 py-3 text-sm font-medium text-[var(--palette-navy)] transition hover:-translate-y-px hover:shadow-[0_10px_32px_-12px_rgba(255,255,255,0.7)] sm:px-6"
+              >
                 Request a Growth Audit
               </Link>
-            </div>
-          </Reveal>
-
-          {/* Floating live metric strip */}
-          <Reveal delay={0.7} className="mt-14 lg:mt-20">
-            <div className="card mx-auto max-w-3xl p-4 md:p-5 bg-[#07070A]/80">
-              <div className="flex items-center justify-between gap-6 flex-wrap">
-                <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--accent)]" />
-                  </span>
-                  <p className="kbd">Live · Q2 portfolio</p>
-                </div>
-                <div className="flex items-center gap-6 md:gap-10 text-sm">
-                  <div>
-                    <p className="font-display text-xl md:text-2xl leading-none">
-                      <Counter to={3.8} decimals={1} suffix="x" />
-                    </p>
-                    <p className="text-[var(--muted)] text-[11px] mt-1 uppercase tracking-wider">Blended ROAS</p>
-                  </div>
-                  <div className="h-8 w-px bg-[var(--border)]" />
-                  <div>
-                    <p className="font-display text-xl md:text-2xl leading-none">
-                      <Counter to={27} suffix="d" />
-                    </p>
-                    <p className="text-[var(--muted)] text-[11px] mt-1 uppercase tracking-wider">CAC payback</p>
-                  </div>
-                  <div className="h-8 w-px bg-[var(--border)] hidden sm:block" />
-                  <div className="hidden sm:block">
-                    <p className="font-display text-xl md:text-2xl leading-none">
-                      <Counter to={62} suffix="%" />
-                    </p>
-                    <p className="text-[var(--muted)] text-[11px] mt-1 uppercase tracking-wider">LTV uplift</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </Reveal>
         </div>
@@ -147,25 +75,25 @@ export default function Home() {
           </div>
 
           <div className="mt-16 grid gap-px overflow-hidden rounded-lg bg-[var(--border)] md:grid-cols-2 lg:grid-cols-4">
-            <Reveal className="bg-[#0B0B0E] p-7 lg:p-9">
+            <Reveal className="bg-[var(--palette-navy)] p-7 lg:p-9">
               <p className="font-display text-5xl tracking-tight md:text-6xl">
                 $<Counter to={420} suffix="M+" />
               </p>
               <p className="kbd mt-4">{metrics[0].label}</p>
             </Reveal>
-            <Reveal className="bg-[#0B0B0E] p-7 lg:p-9" delay={0.06}>
+            <Reveal className="bg-[var(--palette-navy)] p-7 lg:p-9" delay={0.06}>
               <p className="font-display text-5xl tracking-tight md:text-6xl">
                 $<Counter to={140} suffix="M+" />
               </p>
               <p className="kbd mt-4">{metrics[1].label}</p>
             </Reveal>
-            <Reveal className="bg-[#0B0B0E] p-7 lg:p-9" delay={0.12}>
+            <Reveal className="bg-[var(--palette-navy)] p-7 lg:p-9" delay={0.12}>
               <p className="font-display text-5xl tracking-tight md:text-6xl">
                 <Counter to={120} suffix="+" />
               </p>
               <p className="kbd mt-4">{metrics[2].label}</p>
             </Reveal>
-            <Reveal className="bg-[#0B0B0E] p-7 lg:p-9" delay={0.18}>
+            <Reveal className="bg-[var(--palette-navy)] p-7 lg:p-9" delay={0.18}>
               <p className="font-display text-5xl tracking-tight md:text-6xl">
                 <Counter to={3.4} decimals={1} suffix="x" />
               </p>
@@ -176,15 +104,15 @@ export default function Home() {
       </section>
 
       {/* BRAND BAND */}
-      <section className="border-y border-[var(--border)] bg-[var(--foreground)] text-[#07070A]">
+      <section className="border-y border-[var(--border)] bg-[var(--foreground)] text-[var(--palette-navy)]">
         <div className="mx-auto grid max-w-[1400px] gap-8 px-6 py-10 lg:grid-cols-12 lg:items-center lg:px-10">
           <div className="lg:col-span-3">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/60">Trusted by 120+ brands</p>
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/60">Trusted by 120+ brands</p>
           </div>
           <div className="overflow-hidden lg:col-span-9">
             <Marquee>
               {brands.map((brand) => (
-                <span key={brand} className="font-display text-3xl tracking-tight text-[#07070A]/70 md:text-4xl">
+                <span key={brand} className="font-display text-3xl tracking-tight text-[var(--palette-navy)]/70 md:text-4xl">
                   {brand}
                 </span>
               ))}
@@ -233,20 +161,20 @@ export default function Home() {
       </section>
 
       {/* INSIGHTS */}
-      <section className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--foreground)] py-24 text-[#07070A] lg:py-32">
-        <div aria-hidden className="absolute -bottom-[5vw] left-0 right-0 font-display text-[18vw] leading-none tracking-tighter text-[#07070A]/5">
+      <section className="relative overflow-hidden border-t border-[var(--border)] bg-[var(--foreground)] py-24 text-[var(--palette-navy)] lg:py-32">
+        <div aria-hidden className="absolute -bottom-[5vw] left-0 right-0 font-display text-[18vw] leading-none tracking-tighter text-[var(--palette-navy)]/5">
           MEMO
         </div>
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
             <Reveal className="lg:col-span-7">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">[ 06: The growth memo ]</p>
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/55">[ 06: The growth memo ]</p>
               <h2 className="mt-6 font-display max-w-[15ch] text-5xl leading-[0.92] tracking-tight text-balance md:text-7xl lg:text-8xl">
                 Field notes from the operators scaling the floor.
               </h2>
             </Reveal>
             <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.12}>
-              <div className="rounded-lg border border-[#07070A]/12 bg-[#07070A] p-6 text-[var(--foreground)]">
+              <div className="rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--surface)] p-6 text-[var(--foreground)]">
                 <p className="kbd text-[var(--accent)]">Weekly operator readout</p>
                 <p className="mt-5 text-sm text-[var(--foreground)]/68">
                   One useful teardown each week: spend decisions, creative patterns, retention moves, and the math
@@ -258,7 +186,7 @@ export default function Home() {
                     placeholder="founder@brand.com"
                     className="min-w-0 flex-1 rounded-full border border-[var(--border)] bg-transparent px-4 py-3 text-sm outline-none placeholder:text-[var(--muted)]"
                   />
-                  <button className="rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-[#07070A]">
+                  <button className="rounded-full bg-[var(--accent)] px-5 text-sm font-medium text-[var(--palette-navy)]">
                     Join
                   </button>
                 </form>
@@ -270,7 +198,7 @@ export default function Home() {
             <Reveal className="lg:col-span-7">
               <Link
                 href={`/insights/${insights[0].slug}`}
-                className="group flex min-h-[480px] flex-col justify-between rounded-lg border border-[#07070A]/12 bg-[#07070A] p-8 text-[var(--foreground)] transition hover:-translate-y-1 md:p-10"
+                className="group flex min-h-[480px] flex-col justify-between rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--surface)] p-8 text-[var(--foreground)] transition hover:-translate-y-1 md:p-10"
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="kbd text-[var(--accent)]">{insights[0].category}</span>
@@ -294,10 +222,10 @@ export default function Home() {
                 <Reveal key={post.slug} delay={index * 0.08}>
                   <Link
                     href={`/insights/${post.slug}`}
-                    className="group grid gap-8 rounded-lg border border-[#07070A]/12 bg-[#F7F4EE] p-6 transition hover:bg-white md:grid-cols-[1fr_auto] md:items-center"
+                    className="group grid gap-8 rounded-lg border border-[var(--palette-navy)]/12 bg-[var(--palette-orange)] p-6 transition hover:bg-[var(--palette-orange)] md:grid-cols-[1fr_auto] md:items-center"
                   >
                     <div>
-                      <div className="flex flex-wrap items-center gap-3 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-[#07070A]/48">
+                      <div className="flex flex-wrap items-center gap-3 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-[var(--palette-navy)]/48">
                         <span>{post.category}</span>
                         <span>{post.read}</span>
                         <span>{post.date}</span>
