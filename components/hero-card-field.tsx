@@ -15,6 +15,10 @@ function lerp(start: number, end: number, amount: number) {
   return start + (end - start) * amount;
 }
 
+function getMobileCompact(height: number) {
+  return Math.min(Math.max((height - 660) / 190, 0), 1);
+}
+
 function getLineTarget(index: number, total: number, width: number, height: number): Target {
   const isMobile = width < 768;
   const spacing = isMobile ? 72 : 116;
@@ -24,9 +28,12 @@ function getLineTarget(index: number, total: number, width: number, height: numb
 
 function getCircleTarget(index: number, total: number, width: number, height: number): Target {
   const isMobile = width < 768;
-  const xRadius = Math.min(width * (isMobile ? 0.38 : 0.38), isMobile ? 170 : 540);
-  const yRadius = Math.min(height * (isMobile ? 0.2 : 0.28), isMobile ? 160 : 300);
-  const yOffset = isMobile ? -56 : 0;
+  const compact = isMobile ? getMobileCompact(height) : 1;
+  const mobileXRadius = lerp(134, 170, compact);
+  const mobileYRadius = lerp(124, 160, compact);
+  const xRadius = Math.min(width * (isMobile ? 0.34 : 0.38), isMobile ? mobileXRadius : 540);
+  const yRadius = Math.min(height * (isMobile ? 0.18 : 0.28), isMobile ? mobileYRadius : 300);
+  const yOffset = isMobile ? lerp(-24, -56, compact) : 0;
   const angle = (index / total) * 360 - 90;
   const rad = (angle * Math.PI) / 180;
 
@@ -34,7 +41,7 @@ function getCircleTarget(index: number, total: number, width: number, height: nu
     x: Math.cos(rad) * xRadius,
     y: Math.sin(rad) * yRadius + yOffset,
     rotate: angle + 90,
-    scale: isMobile ? 0.82 : 0.9,
+    scale: isMobile ? lerp(0.66, 0.82, compact) : 0.9,
     opacity: 1,
   };
 }
@@ -90,16 +97,19 @@ function FlipCard({ src, index, total, progress, width, height }: {
   height: number;
 }) {
   const isMobile = width < 768;
+  const compact = isMobile ? getMobileCompact(height) : 1;
+  const cardW = isMobile ? lerp(78, MOBILE_CARD_W, compact) : CARD_W;
+  const cardH = isMobile ? lerp(106, MOBILE_CARD_H, compact) : CARD_H;
   const target = getTarget(index, total, width, height, progress);
 
   return (
     <div
       className="absolute left-1/2 top-1/2 overflow-hidden rounded-lg border border-[var(--palette-blue)]/24 bg-[var(--palette-navy)] shadow-[0_18px_48px_rgba(var(--palette-navy-rgb),0.28)]"
       style={{
-        width: isMobile ? MOBILE_CARD_W : CARD_W,
-        height: isMobile ? MOBILE_CARD_H : CARD_H,
-        marginLeft: (isMobile ? MOBILE_CARD_W : CARD_W) / -2,
-        marginTop: (isMobile ? MOBILE_CARD_H : CARD_H) / -2,
+        width: cardW,
+        height: cardH,
+        marginLeft: cardW / -2,
+        marginTop: cardH / -2,
         opacity: target.opacity,
         transform: `translate3d(${target.x}px, ${target.y}px, 0) rotate(${target.rotate}deg) scale(${target.scale})`,
         willChange: "transform, opacity",

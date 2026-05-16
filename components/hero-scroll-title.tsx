@@ -10,6 +10,10 @@ function lerp(start: number, end: number, amount: number) {
   return start + (end - start) * amount;
 }
 
+function getMobileCompact(height: number) {
+  return Math.min(Math.max((height - 660) / 190, 0), 1);
+}
+
 export function HeroScrollTitle({ children, className }: { children: ReactNode; className: string }) {
   const ref = useRef<HTMLHeadingElement>(null);
   const [progress, setProgress] = useState(0);
@@ -27,8 +31,9 @@ export function HeroScrollTitle({ children, className }: { children: ReactNode; 
       const rect = section.getBoundingClientRect();
       const travel = Math.max(rect.height - window.innerHeight, 1);
       const isMobile = window.innerWidth < 768;
-      setStartOffset(isMobile ? 68 : 60);
-      setStartScale(isMobile ? 0.64 : 0.7);
+      const compact = getMobileCompact(window.innerHeight);
+      setStartOffset(isMobile ? lerp(48, 68, compact) : 60);
+      setStartScale(isMobile ? lerp(0.5, 0.64, compact) : 0.7);
       setProgress(clamp(Math.abs(rect.top) / travel, 0, 1));
     };
 

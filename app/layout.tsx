@@ -45,8 +45,23 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${inter.variable} ${instrument.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+try {
+  var theme = window.localStorage.getItem('leading-social-theme');
+  if (theme === 'classic') {
+    document.documentElement.dataset.theme = 'classic';
+  }
+} catch (_) {}
+            `.trim(),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col grain relative">
         <Nav />
         <main className="flex-1 relative z-[2]">{children}</main>
