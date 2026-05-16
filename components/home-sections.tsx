@@ -25,6 +25,14 @@ type CaseStudy = {
   stats: { k: string; v: string }[];
 };
 
+type CreativeAsset = {
+  brand: string;
+  title: string;
+  image: string;
+  description: string;
+  category: string;
+};
+
 type SocialAsset = {
   id: string;
   title: string;
@@ -132,7 +140,7 @@ export function SocialSignalWall({ assets }: { assets: SocialAsset[] }) {
   );
 }
 
-export function MediaProofWall({ cases }: { cases: CaseStudy[] }) {
+export function MediaProofWall({ cases, assets }: { cases: CaseStudy[]; assets?: CreativeAsset[] }) {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -140,10 +148,10 @@ export function MediaProofWall({ cases }: { cases: CaseStudy[] }) {
   const yRight = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [90, -80]);
 
   const tiles = [
-    { label: "Creative tests", value: "84/mo", image: cases[1]?.image },
-    { label: "CAC payback", value: "27d", image: cases[0]?.image },
-    { label: "LTV uplift", value: "+62%", image: cases[2]?.image },
-    { label: "Forecast accuracy", value: "97%", image: cases[3]?.image },
+    { label: "Creative tests", value: "84/mo", image: assets?.[33]?.image ?? cases[1]?.image },
+    { label: "CAC payback", value: "27d", image: assets?.[35]?.image ?? cases[0]?.image },
+    { label: "LTV uplift", value: "+62%", image: assets?.[18]?.image ?? cases[2]?.image },
+    { label: "Forecast accuracy", value: "97%", image: assets?.[0]?.image ?? cases[3]?.image },
   ];
 
   return (
@@ -171,6 +179,80 @@ export function MediaProofWall({ cases }: { cases: CaseStudy[] }) {
               <ProofTile key={tile.label} {...tile} />
             ))}
           </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function CreativeAssetWall({ assets }: { assets: CreativeAsset[] }) {
+  const featured = assets.slice(0, 10);
+  const library = assets.slice(10);
+
+  return (
+    <section className="relative overflow-hidden border-y border-[var(--border)] bg-[#F7F4EE] py-24 text-[#07070A] lg:py-32">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-[#07070A]/55">
+              [ Creative library ]
+            </p>
+            <h2 className="mt-6 font-display max-w-[14ch] text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
+              The proof belongs to the brands.
+            </h2>
+          </div>
+          <p className="max-w-md text-lg text-[#07070A]/66 lg:col-span-4 lg:col-start-9">
+            A working library of product, lifestyle, offer, testimonial, and story assets across wellness, nutrition,
+            apparel, beauty, beverage, and consumer brands.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-5 lg:grid-cols-12">
+          <div className="grid gap-5 md:grid-cols-2 lg:col-span-7">
+            {featured.map((asset, index) => (
+              <article
+                key={`${asset.brand}-${asset.title}`}
+                className={index === 0 ? "group overflow-hidden rounded-lg border border-[#07070A]/12 bg-white md:col-span-2" : "group overflow-hidden rounded-lg border border-[#07070A]/12 bg-white"}
+              >
+                <div className={index === 0 ? "relative aspect-[16/9] overflow-hidden" : "relative aspect-[4/5] overflow-hidden"}>
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition duration-[1200ms] group-hover:scale-105"
+                    style={{ backgroundImage: `url('${asset.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07070A]/55 via-transparent to-transparent" />
+                  <span className="absolute left-4 top-4 rounded-full bg-[#F7F4EE]/92 px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-[#07070A]/70">
+                    {asset.category}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <p className="font-display text-2xl tracking-tight">{asset.brand}</p>
+                  <p className="mt-1 text-sm font-medium text-[#07070A]/64">{asset.title}</p>
+                  <p className="mt-4 line-clamp-2 text-sm leading-6 text-[#07070A]/62">{asset.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="grid gap-3 self-start lg:sticky lg:top-24 lg:col-span-5">
+            {library.map((asset) => (
+              <article
+                key={`${asset.brand}-${asset.title}`}
+                className="grid overflow-hidden rounded-lg border border-[#07070A]/12 bg-white sm:grid-cols-[138px_1fr]"
+              >
+                <div className="relative min-h-[138px] overflow-hidden bg-[#E7E0D6]">
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${asset.image}')` }} />
+                </div>
+                <div className="p-4">
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-[#07070A]/48">
+                    <span>{asset.brand}</span>
+                    <span>{asset.category}</span>
+                  </div>
+                  <h3 className="mt-3 font-display text-xl leading-tight tracking-tight">{asset.title}</h3>
+                  <p className="mt-3 line-clamp-2 text-sm leading-5 text-[#07070A]/58">{asset.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -6,22 +6,23 @@ import { Marquee } from "@/components/marquee";
 import { Globe } from "@/components/globe";
 import {
   CameraCommandCenter,
+  CreativeAssetWall,
   MediaProofWall,
   ResultsRail,
   SocialSignalWall,
   StickyGrowthSystem,
 } from "@/components/home-sections";
-import { brands, cases, insights, metrics, principles, services, socialAssets } from "@/lib/content";
+import { brands, cases, creativeAssets, insights, metrics, principles, services, socialAssets } from "@/lib/content";
 
 const heroImageGrid = [
-  socialAssets[0].image,
-  cases[1].image,
-  socialAssets[3].image,
-  cases[0].image,
-  socialAssets[2].image,
-  cases[2].image,
-  socialAssets[4].image,
-  cases[3].image,
+  creativeAssets[0].image,
+  creativeAssets[8].image,
+  creativeAssets[24].image,
+  creativeAssets[33].image,
+  creativeAssets[35].image,
+  creativeAssets[2].image,
+  creativeAssets[41].image,
+  creativeAssets[44].image,
 ];
 
 export default function Home() {
@@ -198,7 +199,9 @@ export default function Home() {
 
       <ResultsRail cases={cases} />
 
-      <MediaProofWall cases={cases} />
+      <MediaProofWall cases={cases} assets={creativeAssets} />
+
+      <CreativeAssetWall assets={creativeAssets} />
 
       <SocialSignalWall assets={socialAssets} />
 
